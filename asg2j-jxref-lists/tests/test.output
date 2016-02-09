@@ -1,0 +1,542 @@
+::::::::::::::::::::::::::::::::
+test0.in
+::::::::::::::::::::::::::::::::
+1.2 [1] 1
+19:37:27-08 [1] 1
+2013-01-24 [1] 1
+Id [1] 1
+test0.in [1] 1
+v [1] 1
+::::::::::::::::::::::::::::::::
+test1.in
+::::::::::::::::::::::::::::::::
+1.1 [1] 14
+10:43 [1] 13
+19:25:04-08 [1] 14
+2013-01-24 [1] 14
+Check [1] 11
+Does [1] 3
+Don't [1] 12
+Id [1] 14
+Most [1] 10
+Some [2] 2 9
+The [1] 4
+This [3] 1 6 7
+a [4] 1 4 6 7
+and [1] 11
+are [2] 2 9
+assignment [1] 4
+by [1] 3
+creating [1] 4
+cross [1] 4
+data [3] 1 6 7
+doesn't [2] 12 12
+empty [1] 9
+file [3] 1 6 7
+for [1] 11
+given [1] 3
+have [1] 10
+hyph-enated [1] 11
+in [1] 10
+is [3] 1 6 7
+lines [2] 9 10
+match [1] 3
+of [5] 1 2 6 7 10
+or [1] 4
+output [2] 3 3
+punctuation [1] 11
+pxref.perl [1] 3
+reference [1] 4
+repeated [1] 2
+requires [1] 4
+test [3] 1 6 7
+test1.in [1] 14
+the [3] 2 3 10
+them [1] 10
+v [1] 14
+words [3] 2 10 11
+xref [1] 4
+your [1] 3
+::::::::::::::::::::::::::::::::
+test2.in
+::::::::::::::::::::::::::::::::
+1.1 [1] 9
+19:25:04-08 [1] 9
+2013-01-24 [1] 9
+Id [1] 9
+This [8] 1 2 3 4 5 6 7 8
+a [8] 1 2 3 4 5 6 7 8
+data [8] 1 2 3 4 5 6 7 8
+file [8] 1 2 3 4 5 6 7 8
+is [8] 1 2 3 4 5 6 7 8
+of [8] 1 2 3 4 5 6 7 8
+repetitive [8] 1 2 3 4 5 6 7 8
+test [8] 1 2 3 4 5 6 7 8
+test2.in [1] 9
+v [1] 9
+::::::::::::::::::::::::::::::::
+test3.in
+::::::::::::::::::::::::::::::::
+1.1 [1] 55
+19:25:04-08 [1] 55
+2013-01-24 [1] 55
+A [1] 24
+Against [1] 22
+Alban [1] 10
+An [1] 23
+And [6] 3 6 9 11 41 50
+Argos [1] 27
+Arms [1] 2
+Besides [1] 40
+Can [1] 19
+Carthage [2] 26 33
+Deep [1] 42
+Each [1] 46
+Electra's [1] 45
+Expell'd [1] 4
+Expos'd [1] 18
+For [3] 15 38 48
+From [1] 10
+Ganymed [1] 44
+Greece [1] 38
+Heav'n [2] 15 28
+Her [1] 33
+Here [1] 28
+His [1] 8
+I [1] 2
+Id [1] 55
+Involv'd [1] 17
+Juno [1] 26
+Juno's [1] 3
+Latian [2] 7 48
+Long [2] 5 31
+Muse [1] 13
+Nor [2] 34 37
+O [1] 13
+Of [1] 43
+Or [1] 20
+Paris [1] 43
+Queen [1] 15
+Roman [1] 52
+Rome [1] 11
+Samian [1] 27
+She [2] 36 49
+Should [1] 35
+Stout [1] 25
+Such [2] 52 53
+Than [1] 27
+That [1] 32
+The [3] 7 29 44
+Tiber's [1] 22
+To [2] 16 47
+Trojan [4] 4 32 38 49
+Tyrian [1] 24
+Were [1] 51
+What [1] 14
+Yet [1] 30
+a [3] 16 46 53
+against [1] 38
+all [2] 35 46
+alone [1] 46
+an [1] 30
+ancient [2] 23 30
+and [14] 2 4 5 7 13 14 18 25 33 36 43 45 46 51
+anxious [1] 17
+away [1] 22
+awful [1] 29
+banish'd [1] 8
+bed [1] 45
+before [1] 6
+began [1] 15
+behind [1] 41
+belov'd [1] 26
+bestow'd [1] 44
+bore [1] 5
+both [1] 5
+brave [1] 16
+built [1] 7
+but [1] 22
+by [5] 2 5 26 31 51
+cares [1] 17
+cause [1] 46
+causes [2] 13 40
+chariot [1] 28
+cited [1] 31
+coast [1] 48
+colony [1] 24
+combin'd [1] 46
+come [2] 10 32
+confin'd [1] 34
+conqu'ring [1] 38
+could [1] 37
+crimes [1] 13
+deface [1] 33
+design'd [1] 29
+destin'd [1] 7
+disdain'd [1] 43
+distant [1] 48
+divine [1] 8
+doom [1] 42
+doubtful [1] 6
+drove [1] 49
+empire [1] 29
+endless [1] 17
+envy [1] 41
+exercise [1] 20
+exil'd [1] 4
+far [2] 22 48
+fate [2] 2 36
+fathers [1] 10
+fear'd [1] 36
+fly [1] 30
+for [2] 25 53
+forc'd [1] 2
+forget [1] 37
+form [1] 43
+frame [1] 53
+from [1] 48
+glories [2] 11 45
+goddess [1] 14
+gods [1] 8
+grace [1] 44
+graven [1] 42
+had [1] 30
+hate [2] 3 14
+haughty [2] 3 47
+he [2] 5 6
+heard [1] 30
+heart [1] 42
+heav'nly [1] 19
+her [9] 14 27 28 33 40 42 43 45 47
+here [1] 28
+high [1] 19
+his [2] 9 17
+host [1] 49
+human [1] 20
+hurried [1] 18
+if [1] 28
+in [8] 6 9 17 20 36 40 42 47
+injur'd [1] 45
+into [1] 18
+it [1] 36
+just [1] 16
+kind [1] 28
+kindle [1] 47
+labor [1] 53
+labors [1] 5
+land [1] 5
+late [1] 37
+lay [2] 35 41
+left [1] 4
+length [1] 53
+life [1] 17
+line [1] 9
+long [3] 11 40 50
+made [1] 24
+main [1] 51
+majestic [1] 11
+man [2] 2 16
+mind [2] 40 47
+minds [1] 19
+more [1] 26
+mouth [1] 22
+name [2] 26 52
+nations [1] 35
+necks [1] 35
+of [12] 10 11 15 25 29 31 34 35 37 41 49 53
+offense [1] 15
+on [3] 23 35 44
+or [1] 27
+own [1] 27
+partial [1] 43
+people [2] 24 31
+persecute [1] 16
+ponder'd [1] 36
+provok'd [1] 14
+race [2] 10 32
+ravish'd [1] 44
+realm [1] 7
+relate [1] 13
+remain'd [1] 42
+remnants [1] 49
+requir'd [1] 52
+resentment [1] 19
+restor'd [1] 8
+rites [1] 8
+ruin [1] 33
+rumor [1] 30
+scatter'd [1] 51
+sea [2] 5 23
+seat [1] 29
+seated [1] 23
+secret [1] 41
+see [1] 32
+seeds [1] 41
+settled [1] 9
+sev'n [1] 50
+she [3] 29 30 37
+shore [2] 4 27
+should [1] 32
+show [1] 19
+sing [1] 2
+sky [1] 31
+so [3] 16 16 53
+sov'reign [1] 34
+spite [1] 20
+state [1] 38
+stood [1] 28
+storms [1] 51
+studious [1] 25
+succession [1] 9
+such [2] 19 52
+sure [1] 9
+sway [1] 34
+test3.in [1] 55
+th [1] 50
+the [29] 2 4 6 7 10 11 13 13 15 22 23 24 25 26 27 31 31 32 34 35 35 37 38 42 48 49 49 51 52
+their [2] 20 25
+this [2] 36 48
+thro [1] 51
+thus [1] 34
+time [1] 52
+times [1] 32
+to [3] 8 18 32
+toil [1] 52
+toss'd [1] 51
+tow'rs [1] 33
+town [2] 7 23
+trade [1] 25
+train [1] 50
+unhappy [1] 50
+unrelenting [1] 3
+v [1] 55
+vast [1] 53
+vengeance [1] 47
+wag'd [1] 37
+wand'ring [1] 50
+wants [1] 18
+war [3] 6 25 37
+wars [1] 18
+was [4] 14 23 36 46
+were [1] 28
+what [1] 15
+whence [2] 10 14
+who [1] 2
+woe [1] 20
+won [1] 6
+working [1] 40
+years [1] 50
+yoke [1] 34
+::::::::::::::::::::::::::::::::
+test4.in
+::::::::::::::::::::::::::::::::
+1.1 [1] 38
+19:25:04-08 [1] 38
+2013-01-24 [1] 38
+A [1] 5
+Admit [1] 34
+Agincourt [1] 16
+And [3] 6 19 27
+Are [1] 22
+Assume [1] 8
+Attest [1] 18
+But [1] 10
+Carry [1] 31
+Chorus [2] 1 34
+Crouch [1] 10
+For [1] 30
+France [1] 14
+Gently [1] 36
+Harry [1] 7
+Id [1] 38
+Into [2] 26 33
+Leash'd [1] 9
+Mars [1] 8
+Muse [1] 3
+O [3] 3 15 17
+On [2] 12 20
+Piece [1] 25
+Printing [1] 29
+So [1] 13
+Suppose [1] 21
+That [1] 16
+The [4] 4 11 14 24
+Then [1] 7
+Think [1] 28
+Turning [1] 32
+Who [1] 35
+Whose [1] 23
+Within [1] 15
+a [5] 3 5 17 18 26
+abutting [1] 23
+accomplishment [1] 32
+accompt [1] 19
+act [1] 5
+affright [1] 16
+air [1] 16
+all [1] 10
+an [2] 13 33
+and [5] 8 9 10 23 31
+ascend [1] 3
+asunder [1] 24
+at [2] 8 16
+behold [1] 6
+brightest [1] 4
+bring [1] 12
+can [1] 13
+casques [1] 15
+ciphers [1] 19
+cockpit [1] 13
+confined [1] 22
+cram [1] 14
+crooked [1] 17
+dared [1] 11
+deck [1] 30
+did [1] 16
+divide [1] 26
+earth [1] 29
+employment [1] 10
+famine [1] 9
+fields [1] 14
+figure [1] 17
+fire [2] 3 9
+flat [1] 11
+for [4] 3 5 10 33
+forces [1] 20
+forth [1] 12
+fronts [1] 23
+gentles [1] 10
+girdle [1] 21
+great [2] 13 19
+have [1] 11
+hear [1] 36
+heaven [1] 4
+heels [1] 8
+here [1] 31
+high [1] 23
+himself [1] 7
+his [1] 8
+history [1] 34
+hold [1] 13
+hoofs [1] 29
+horses [1] 28
+hounds [1] 9
+hour-glass [1] 33
+humble [1] 35
+i [1] 29
+imaginary [2] 20 27
+imperfections [1] 25
+in [2] 9 18
+invention [1] 4
+judge [1] 36
+jumping [1] 31
+kindly [1] 36
+kingdom [1] 5
+kings [1] 30
+let [1] 19
+like [2] 7 9
+little [1] 18
+make [1] 27
+man [1] 26
+many [1] 32
+may [2] 14 17
+me [1] 34
+mighty [1] 22
+million [1] 18
+monarchies [1] 22
+monarchs [1] 6
+must [1] 30
+narrow [1] 24
+now [2] 22 30
+o'er [1] 31
+object [1] 13
+ocean [1] 24
+of [7] 3 4 8 14 21 28 32
+on [1] 26
+or [1] 14
+our [3] 25 30 36
+out [1] 25
+pardon [2] 10 17
+parts [2] 24 26
+patience [1] 35
+perilous [1] 24
+place [1] 18
+play [1] 36
+port [1] 8
+pray [1] 35
+princes [1] 5
+prologue-like [1] 35
+proud [1] 29
+puissance [1] 27
+receiving [1] 29
+scaffold [1] 12
+scene [1] 6
+see [1] 28
+should [2] 7 9
+since [1] 17
+spirits [1] 11
+stage [1] 5
+supply [1] 33
+swelling [1] 6
+sword [1] 9
+talk [1] 28
+test4.in [1] 38
+that [4] 3 11 28 30
+the [9] 6 7 8 15 16 21 29 32 33
+their [1] 29
+them [2] 28 31
+there [1] 31
+these [1] 21
+this [5] 12 13 15 19 34
+thoughts [2] 25 30
+thousand [1] 26
+times [1] 31
+tis [1] 30
+to [7] 5 6 12 19 34 36 36
+two [1] 22
+unraised [1] 11
+unworthy [1] 12
+upreared [1] 23
+us [1] 19
+v [1] 38
+vasty [1] 14
+very [1] 15
+walls [1] 21
+warlike [1] 7
+we [2] 14 28
+when [1] 28
+which [1] 33
+with [1] 25
+within [1] 21
+wooden [1] 15
+work [1] 20
+would [1] 3
+years [1] 32
+you [1] 28
+your [4] 20 25 30 35
+::::::::::::::::::::::::::::::::
+test5.in
+::::::::::::::::::::::::::::::::
+1.1 [8] 2 5 8 11 14 17 23 29
+13:22:30-07 [1] 5
+13:31:21-07 [1] 26
+13:33:28-07 [1] 23
+13:33:39-07 [1] 20
+17:14:52-07 [1] 14
+17:45:20-08 [1] 17
+17:47:18-07 [1] 8
+18:40:17-07 [1] 11
+19:25:04-08 [2] 2 29
+2007-04-24 [3] 20 23 26
+2008-01-15 [1] 17
+2008-10-16 [1] 14
+2009-04-07 [1] 11
+2009-10-13 [1] 8
+2010-04-13 [1] 5
+2013-01-24 [2] 2 29
+7.1 [2] 20 26
+Id [1] 29
+Log [1] 1
+Revision [9] 2 5 8 11 14 17 20 23 26
+test5.in [2] 1 29
+v [2] 1 29

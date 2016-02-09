@@ -1,0 +1,30 @@
+**** ## $Id: data1.in,v 1.1 2013-10-16 12:50:14-07 - - $ ##
+**** a: 1.7
+a: 1.7
+   null
+**** b= ac+ ac+*
+b: nan
+   ((a+c)*(a+c))
+**** c:3
+c: 3
+   null
+**** b ?
+b: 22.09
+   ((a+c)*(a+c))
+**** z :0
+z: 0
+   null
+**** y= a z/
+y: inf
+   (a/z)
+**** FINAL SYMBOL TABLE ****
+a: 1.7
+   null
+b: 22.09
+   ((a+c)*(a+c))
+c: 3
+   null
+y: inf
+   (a/z)
+z: 0
+   null

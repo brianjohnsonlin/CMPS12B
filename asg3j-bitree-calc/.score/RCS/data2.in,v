@@ -1,0 +1,35 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.10.16.19.50.14;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@## $Id: data2.in,v 1.2 2009-10-27 19:44:15-07 - - $ ##
+a : 1.2
+b : 3.5
+c = a b +
+c?
+b:-45e28
+c?
+a :45e29
+c?
+b=aa*
+c?
+c?
+@

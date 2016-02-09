@@ -1,0 +1,4 @@
+showlink: futuretimes.c: Invalid argument
+showlink: mkstampfiles.c: Invalid argument
+showlink: showlink.c: Invalid argument
+this-is-a-symlink -> "l8stat.perl"

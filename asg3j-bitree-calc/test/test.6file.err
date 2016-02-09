@@ -1,0 +1,12 @@
+./pbitreecalc.perl: data6.in: 4: syntax error
+./pbitreecalc.perl: data6.in: 10: syntax error
+./pbitreecalc.perl: data6.in: 11: syntax error
+./pbitreecalc.perl: data6.in: 13: syntax error
+./pbitreecalc.perl: data6.in: 14: syntax error
+./pbitreecalc.perl: data6.in: 16: syntax error
+./pbitreecalc.perl: data6.in: 17: syntax error
+./pbitreecalc.perl: data6.in: 19: syntax error
+./pbitreecalc.perl: data6.in: 20: syntax error
+./pbitreecalc.perl: data6.in: 22: syntax error
+./pbitreecalc.perl: data6.in: 23: syntax error
+./pbitreecalc.perl: data6.in: 25: syntax error

@@ -1,0 +1,82 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2013.10.18.18.44.30;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2012.03.08.21.21.24;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.02.29.01.02.06;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk.test,v 1.2 2012-03-08 13:21:24-08 - - $
+ROOT=/afs/cats.ucsc.edu/courses/cmps012b-wm
+TESTDIR=$ROOT/Labs-cmps012m/lab8c-unixprog-stat/testdata
+ln -s $TESTDIR testdir
+l8stat Makefile l8stat* 1>test1.stdout 2>test1.stderr
+echo status=$? >test1.status
+l8stat /foo/bar/baz . / .. /no/such 1>test2.stdout 2>test2.stderr
+echo status=$? >test2.status
+l8stat testdir/test* testdir 1>test3.stdout 2>test3.stderr
+echo status=$? >test3.status
+valgrind l8stat * 1>testv.stdout 2>testv.stderr
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.test,v 1.1 2012-02-28 17:02:06-08 - - $
+d4 1
+a4 1
+TESTDIR=$ROOT/Labs-cmps012m/lab8s-unixprog-stat/testdata
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.test,v 1.4 2012-02-28 17:01:46-08 - - $
+d6 1
+a6 1
+l9stat Makefile l9stat* 1>test1.stdout 2>test1.stderr
+d8 1
+a8 1
+l9stat /foo/bar/baz . / .. /no/such 1>test2.stdout 2>test2.stderr
+d10 1
+a10 1
+l9stat testdir/test* testdir 1>test3.stdout 2>test3.stderr
+d12 1
+a12 1
+valgrind l9stat * 1>testv.stdout 2>testv.stderr
+@

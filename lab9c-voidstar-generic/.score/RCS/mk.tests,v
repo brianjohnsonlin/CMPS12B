@@ -1,0 +1,50 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.05.18.02.39.49;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.03.09.02.53.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.tests,v 1.1 2012-03-08 18:53:47-08 - - $
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+./numsort <num.data 1>out.test.num.out 2>out.test.num.err
+./linesort <line.data 1>out.test.line.out 2>out.test.line.err
+valgrind --leak-check=full numsort <num.data >out.valgrind.nums 2>&1
+valgrind --leak-check=full linesort <line.data >out.valgrind.lines 2>&1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 4
+a5 5
+# $Id: mk.tests,v 1.1 2011-05-25 19:21:06-07 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+runprogram.perl -0num.data -oout.test.num numsort
+runprogram.perl -0line.data -oout.test.lines linesort
+@

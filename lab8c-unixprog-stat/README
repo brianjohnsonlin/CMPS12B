@@ -1,0 +1,8 @@
+Brian Lin bjlin unix2.lt.ucsc.edu
+
+I would like to note that the perl file always ends
+with an exit status of 0 regardless of error messages.
+However, the SCORE file checks that exit statuses are
+changed to 1 if there is an error message.
+I chose to follow the SCORE file rather than imitate
+the perl program.

@@ -1,0 +1,7 @@
+Brian Lin
+bjlin
+unix2.lt.ucsc.edu
+
+hello.java and Makefile were copied from the hidden .files directory in the lab folder.
+I used WinSCP to view and transfer files. There is also a command terminal, but many commands don't work such as "bash" and "cid", so I use PuTTY for the command terminal and WinSCP for file viewing.
+I also use JCreator for programming.

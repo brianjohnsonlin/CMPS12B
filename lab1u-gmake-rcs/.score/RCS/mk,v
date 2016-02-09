@@ -1,0 +1,49 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.03.27.00.59.00;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2011.08.19.01.42.25;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk,v 1.1 2011-08-18 18:42:25-07 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+partnercheck 2>&1 | tee partnercheck.log
+checksource README *.java Makefile 2>&1 | tee checksource.log
+gmake 2>&1 | tee gmake.log
+./hello 2>&1 | tee hello.log
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.2 2010-12-13 17:20:56-08 - - $
+d5 1
+a5 1
+checksource Survey README *.java Makefile 2>&1 | tee checksource.log
+@

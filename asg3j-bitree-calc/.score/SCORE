@@ -1,0 +1,90 @@
+Grader copy all files from .score into the student's submit
+directory.  Run mk.build, and if that succeeds, run mk.test.
+For each point deducted, insert a comment below to indicate
+why.
+
+*****************************************************************
+
+Run mk.build
+
+SOURCE CODE /30 points
+
+    Note:  minimum 1 point for this section, no matter what.
+
+    (3)  checksource (look in file check.log):
+         Deduct minimum (3, int (complaints / 5)).
+
+    (3)  proper identifiers and consistent indentation
+
+    (3)  code in general is neat and readable
+
+    (3)  explanatory comment on each of their functions
+
+    (3)  linked stack properly implemented and copied
+         symbol table class copied and implemented
+         (just a copy of my code, possibly slightly modified)
+
+    (3)  class bitreecalc contains main class, and analyzes
+         required options.  They may use my class getopt if
+         properly integrated into Makefile, or roll their own.
+
+    (3)  proper scanning code in class bitreecalc to identify
+         and parse the various statements
+
+    (3)  bitree class two ctors, one for leaf, one for operator
+
+    (3)  bitree method evaluate handles variables and operators
+         and is recursive
+
+    (3)  bitree method toString converts a tree to a string
+         for printing
+
+total source=
+min 1, max 30
+
+*****************************************************************
+
+Run mk.test
+If compilation failed, assign 0 for this section.
+
+PROGRAM TESTING /30 points
+
+    (3)  grep STATUS *.log
+         were they correct?  If *.err has a message status
+         should be 1.  If not, 0.
+
+    (3)  were error messages, when appropriate, sent to stderr?
+
+    (3)  did -otest.no-eopt suppress echo but all -e tests 
+         echo input to output?
+
+    (3)  -otest.0stdin, correct output?
+
+    (3)  correct output -otest.0file -otest.1file -otest.2file
+
+    (3)  correct output -otest.3file -otest.4file -otest.5file
+         -otest.6file
+
+    (3)  error messages to stderr for -otest.err.msgs
+
+    (3)  file written to outfile for -otest.outfile
+
+    (3)  only one line output for -otest.dev.null
+
+    (3)  none of the tests caused the java program to crash
+         with a traceback
+
+total testing=
+min 0, max 30
+
+*****************************************************************
+
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL1.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 60
+

@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.09.25.20.09.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.tests,v 1.1 2013-01-28 17:54:58-08 - - $
+ulimit -f 10
+for test in test*rpn
+do
+   ./crpn <$test 1>$test.output 2>&1
+done
+@

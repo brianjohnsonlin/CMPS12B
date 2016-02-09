@@ -1,0 +1,23 @@
+a: 1.7
+   null
+b: nan
+   ((a+c)*(a+c))
+c: 3
+   null
+b: 22.09
+   ((a+c)*(a+c))
+z: 0
+   null
+y: inf
+   (a/z)
+**** FINAL SYMBOL TABLE ****
+a: 1.7
+   null
+b: 22.09
+   ((a+c)*(a+c))
+c: 3
+   null
+y: inf
+   (a/z)
+z: 0
+   null

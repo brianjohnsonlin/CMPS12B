@@ -1,0 +1,64 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.05.01.20.26.20;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.02.15.03.07.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.tests,v 1.1 2012-02-14 19:07:24-08 - - $
+
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+
+function runtest {
+   test=$1
+   shift
+   echo $0: Running $test "$@@"
+   "$@@" 1>test.$test.out 2>test.$test.err
+   echo status = $? >test.$test.status
+   ls -goa test.$test.*
+}
+
+runtest test1 catqueue <data-1
+runtest test2 catqueue data-*
+runtest test3 catqueue foo bar baz /dev/null
+valgrind --leak-check=full catqueue data-aeneid >test4.out 2>test4.err
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 16
+a17 6
+# $Id: mk.tests,v 1.2 2011-02-04 14:30:38-08 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+runprogram.perl -0data-1 -otest1 catqueue
+runprogram.perl          -otest2 catqueue data-*
+runprogram.perl          -otest3 catqueue foo bar baz /dev/null
+d19 1
+@

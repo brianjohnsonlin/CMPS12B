@@ -1,0 +1,901 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: Enscript Output
+%%For: Wesley Mackey
+%%Creator: GNU enscript 1.6.4
+%%CreationDate: Fri Oct 18 11:45:28 2013
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 4
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 4
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier-Bold /F-gs-font MF
+/F-gs-font 11 11 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript-mycolor 1.6 4
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+/HeaderPageCountF /Helvetica-Bold findfont 18 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    /dhw d_header_w 4 sub def
+
+    /linecolor {0 0 0 setrgbcolor} bind def  % line color
+    /txcolor   {0 0 0 setrgbcolor} bind def  % text color
+    /fncolor   {0 0 0 setrgbcolor} bind def  % filename line color
+
+    .5 setlinewidth
+
+    % line across bottom of the header area
+    linecolor
+    0 0 moveto dhw 0 lineto
+
+    % side boxes
+    /sbw d_header_h 2 mul def	% side box width
+
+    % left side box
+    0 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % date/time in left box
+    txcolor
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 5 div moveto show
+
+    % right side box
+    dhw sbw sub 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % get width of pagecount
+    HeaderPageCountF setfont
+    pagecountstr stringwidth pop
+
+    txcolor
+    HeaderPageNumF setfont
+    pagenumstr stringwidth pop add  % add to width of pagecount
+    sbw exch sub 2 div dhw sbw sub add
+    d_header_h .2 mul moveto
+
+    pagenumstr show
+
+    HeaderPageCountF setfont
+    pagecountstr show
+
+    % filename
+    fncolor
+    HeaderHDRF setfont
+    dhw fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % HACK around a bug in enscript 1.6.0:
+      % for some reason this is getting set to "(null)" and
+      %
+      user_header_center_str (\(null\)) eq {
+        /user_header_center_str () def
+      } if
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        dhw user_header_left_str stringwidth pop sub 2 div
+        h moveto user_header_left_str show
+      } {
+        sbw 5 add h moveto user_header_left_str show
+
+        dhw user_header_center_str stringwidth pop sub 2 div
+        h moveto user_header_center_str show
+
+	dhw sbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} bind def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (futuretimes.c) def
+/fdir () def
+/ftail (futuretimes.c) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/18/13) def
+/pagecountstr (/1) def
+/modtimestr (11:45:27) def
+/user_header_p true def
+/user_header_left_str ($cmps012b-wm/Labs-cmps012m/lab8c-unixprog-stat/testdata/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(// $Id: futuretimes.c,v 1.41 2013-05-17 17:42:18-07 - - $) s
+32.4 682 M (2:) s
+32.4 670 M (3:) s
+52.2 670 M
+(#include <limits.h>) s
+32.4 658 M (4:) s
+52.2 658 M
+(#include <locale.h>) s
+32.4 646 M (5:) s
+52.2 646 M
+(#include <stdio.h>) s
+32.4 634 M (6:) s
+52.2 634 M
+(#include <stdlib.h>) s
+32.4 622 M (7:) s
+52.2 622 M
+(#include <time.h>) s
+32.4 610 M (8:) s
+32.4 598 M (9:) s
+52.2 598 M
+(#define SEC_PER_DAY \(24 * 60 * 60\)) s
+25.8 586 M (10:) s
+52.2 586 M
+(#define SEC_PER_YEAR \(SEC_PER_DAY * 365 + SEC_PER_DAY / 4\)) s
+25.8 574 M (11:) s
+52.2 574 M
+(const time_t localtime_segfault = \(time_t\) INT_MAX * SEC_PER_YEAR;) s
+25.8 562 M (12:) s
+25.8 550 M (13:) s
+52.2 550 M
+(int main \(void\) {) s
+25.8 538 M (14:) s
+52.2 538 M
+(   setlocale \(LC_NUMERIC, "en_US"\);) s
+25.8 526 M (15:) s
+52.2 526 M
+(   printf \("sizeof \(time_t\) = %ld\\n", sizeof \(time_t\)\);) s
+25.8 514 M (16:) s
+52.2 514 M
+(   for \(time_t when = 1; when > 0; when = when * 2 + 1\) {) s
+25.8 502 M (17:) s
+52.2 502 M
+(      if \(when > localtime_segfault\) break;) s
+25.8 490 M (18:) s
+52.2 490 M
+(      char *timeformat = "%b %d %a %H:%M:%S %Z";) s
+25.8 478 M (19:) s
+52.2 478 M
+(      char buffer[256];) s
+25.8 466 M (20:) s
+52.2 466 M
+(      struct tm *tm = localtime \(&when\);) s
+25.8 454 M (21:) s
+52.2 454 M
+(      strftime \(buffer, sizeof buffer, timeformat, tm\);) s
+25.8 442 M (22:) s
+52.2 442 M
+(      printf \("%'25ld = %'15d %s\\n", when, tm->tm_year + 1900, buffer\);) s
+25.8 430 M (23:) s
+52.2 430 M
+(   }) s
+25.8 418 M (24:) s
+52.2 418 M
+(   printf \("%'25ld = %'15d = INT_MAX \(localtime_segfault\)\\n",) s
+25.8 406 M (25:) s
+52.2 406 M
+(           localtime_segfault, INT_MAX\);) s
+25.8 394 M (26:) s
+52.2 394 M
+(   printf \("%'25ld = %'15ld = LONG_MAX\\n", LONG_MAX,) s
+25.8 382 M (27:) s
+52.2 382 M
+(           LONG_MAX / SEC_PER_YEAR\);) s
+25.8 370 M (28:) s
+52.2 370 M
+(   return EXIT_SUCCESS;) s
+25.8 358 M (29:) s
+52.2 358 M
+(}) s
+25.8 346 M (30:) s
+25.8 334 M (31:) s
+52.2 334 M
+(//TEST// ./futuretimes >futuretimes.lis) s
+25.8 322 M (32:) s
+52.2 322 M
+(//TEST// mkpspdf futuretimes.ps futuretimes.c* futuretimes.lis) s
+25.8 310 M (33:) s
+_R
+S
+%%Page: (1) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (futuretimes.c.log) def
+/fdir () def
+/ftail (futuretimes.c.log) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/18/13) def
+/pagecountstr (/1) def
+/modtimestr (11:45:28) def
+/user_header_p true def
+/user_header_left_str ($cmps012b-wm/Labs-cmps012m/lab8c-unixprog-stat/testdata/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting futuretimes.c) s
+32.4 682 M (2:) s
+52.2 682 M
+(* futuretimes.c: $Id: futuretimes.c,v 1.41 2013-05-17 17:42:18-07 - - $) s
+32.4 670 M (3:) s
+52.2 670 M
+(* gcc -g -O0 -Wall -Wextra -std=gnu99 futuretimes.c -o futuretimes -lm) s
+32.4 658 M (4:) s
+52.2 658 M
+(* rm -f futuretimes.o) s
+32.4 646 M (5:) s
+52.2 646 M
+(* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished futuretimes.c) s
+_R
+S
+%%Page: (1) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (futuretimes.lis) def
+/fdir () def
+/ftail (futuretimes.lis) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (10/18/13) def
+/pagecountstr (/2) def
+/modtimestr (11:45:28) def
+/user_header_p true def
+/user_header_left_str ($cmps012b-wm/Labs-cmps012m/lab8c-unixprog-stat/testdata/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(sizeof \(time_t\) = 8) s
+32.4 682 M (2:) s
+52.2 682 M
+(                        1 =           1,969 Dec 31 Wed 16:00:01 PST) s
+32.4 670 M (3:) s
+52.2 670 M
+(                        3 =           1,969 Dec 31 Wed 16:00:03 PST) s
+32.4 658 M (4:) s
+52.2 658 M
+(                        7 =           1,969 Dec 31 Wed 16:00:07 PST) s
+32.4 646 M (5:) s
+52.2 646 M
+(                       15 =           1,969 Dec 31 Wed 16:00:15 PST) s
+32.4 634 M (6:) s
+52.2 634 M
+(                       31 =           1,969 Dec 31 Wed 16:00:31 PST) s
+32.4 622 M (7:) s
+52.2 622 M
+(                       63 =           1,969 Dec 31 Wed 16:01:03 PST) s
+32.4 610 M (8:) s
+52.2 610 M
+(                      127 =           1,969 Dec 31 Wed 16:02:07 PST) s
+32.4 598 M (9:) s
+52.2 598 M
+(                      255 =           1,969 Dec 31 Wed 16:04:15 PST) s
+25.8 586 M (10:) s
+52.2 586 M
+(                      511 =           1,969 Dec 31 Wed 16:08:31 PST) s
+25.8 574 M (11:) s
+52.2 574 M
+(                    1,023 =           1,969 Dec 31 Wed 16:17:03 PST) s
+25.8 562 M (12:) s
+52.2 562 M
+(                    2,047 =           1,969 Dec 31 Wed 16:34:07 PST) s
+25.8 550 M (13:) s
+52.2 550 M
+(                    4,095 =           1,969 Dec 31 Wed 17:08:15 PST) s
+25.8 538 M (14:) s
+52.2 538 M
+(                    8,191 =           1,969 Dec 31 Wed 18:16:31 PST) s
+25.8 526 M (15:) s
+52.2 526 M
+(                   16,383 =           1,969 Dec 31 Wed 20:33:03 PST) s
+25.8 514 M (16:) s
+52.2 514 M
+(                   32,767 =           1,970 Jan 01 Thu 01:06:07 PST) s
+25.8 502 M (17:) s
+52.2 502 M
+(                   65,535 =           1,970 Jan 01 Thu 10:12:15 PST) s
+25.8 490 M (18:) s
+52.2 490 M
+(                  131,071 =           1,970 Jan 02 Fri 04:24:31 PST) s
+25.8 478 M (19:) s
+52.2 478 M
+(                  262,143 =           1,970 Jan 03 Sat 16:49:03 PST) s
+25.8 466 M (20:) s
+52.2 466 M
+(                  524,287 =           1,970 Jan 06 Tue 17:38:07 PST) s
+25.8 454 M (21:) s
+52.2 454 M
+(                1,048,575 =           1,970 Jan 12 Mon 19:16:15 PST) s
+25.8 442 M (22:) s
+52.2 442 M
+(                2,097,151 =           1,970 Jan 24 Sat 22:32:31 PST) s
+25.8 430 M (23:) s
+52.2 430 M
+(                4,194,303 =           1,970 Feb 18 Wed 05:05:03 PST) s
+25.8 418 M (24:) s
+52.2 418 M
+(                8,388,607 =           1,970 Apr 07 Tue 18:10:07 PST) s
+25.8 406 M (25:) s
+52.2 406 M
+(               16,777,215 =           1,970 Jul 13 Mon 21:20:15 PDT) s
+25.8 394 M (26:) s
+52.2 394 M
+(               33,554,431 =           1,971 Jan 24 Sun 00:40:31 PST) s
+25.8 382 M (27:) s
+52.2 382 M
+(               67,108,863 =           1,972 Feb 16 Wed 09:21:03 PST) s
+25.8 370 M (28:) s
+52.2 370 M
+(              134,217,727 =           1,974 Apr 03 Wed 03:42:07 PDT) s
+25.8 358 M (29:) s
+52.2 358 M
+(              268,435,455 =           1,978 Jul 04 Tue 14:24:15 PDT) s
+25.8 346 M (30:) s
+52.2 346 M
+(              536,870,911 =           1,987 Jan 05 Mon 10:48:31 PST) s
+25.8 334 M (31:) s
+52.2 334 M
+(            1,073,741,823 =           2,004 Jan 10 Sat 05:37:03 PST) s
+25.8 322 M (32:) s
+52.2 322 M
+(            2,147,483,647 =           2,038 Jan 18 Mon 19:14:07 PST) s
+25.8 310 M (33:) s
+52.2 310 M
+(            4,294,967,295 =           2,106 Feb 06 Sat 22:28:15 PST) s
+25.8 298 M (34:) s
+52.2 298 M
+(            8,589,934,591 =           2,242 Mar 16 Wed 05:56:31 PDT) s
+25.8 286 M (35:) s
+52.2 286 M
+(           17,179,869,183 =           2,514 May 29 Tue 18:53:03 PDT) s
+25.8 274 M (36:) s
+52.2 274 M
+(           34,359,738,367 =           3,058 Oct 25 Mon 20:46:07 PDT) s
+25.8 262 M (37:) s
+52.2 262 M
+(           68,719,476,735 =           4,147 Aug 20 Sun 00:32:15 PDT) s
+25.8 250 M (38:) s
+52.2 250 M
+(          137,438,953,471 =           6,325 Apr 08 Wed 08:04:31 PDT) s
+25.8 238 M (39:) s
+52.2 238 M
+(          274,877,906,943 =          10,680 Jul 13 Tue 23:09:03 PDT) s
+25.8 226 M (40:) s
+52.2 226 M
+(          549,755,813,887 =          19,391 Jan 25 Tue 04:18:07 PST) s
+25.8 214 M (41:) s
+52.2 214 M
+(        1,099,511,627,775 =          36,812 Feb 19 Sun 16:36:15 PST) s
+25.8 202 M (42:) s
+52.2 202 M
+(        2,199,023,255,551 =          71,654 Apr 09 Thu 18:12:31 PDT) s
+25.8 190 M (43:) s
+52.2 190 M
+(        4,398,046,511,103 =         141,338 Jul 18 Fri 19:25:03 PDT) s
+25.8 178 M (44:) s
+52.2 178 M
+(        8,796,093,022,207 =         280,707 Feb 03 Sun 20:50:07 PST) s
+25.8 166 M (45:) s
+52.2 166 M
+(       17,592,186,044,415 =         559,444 Mar 08 Fri 01:40:15 PST) s
+25.8 154 M (46:) s
+52.2 154 M
+(       35,184,372,088,831 =       1,116,918 May 14 Sat 12:20:31 PDT) s
+25.8 142 M (47:) s
+52.2 142 M
+(       70,368,744,177,663 =       2,231,866 Sep 25 Tue 07:41:03 PDT) s
+25.8 130 M (48:) s
+52.2 130 M
+(      140,737,488,355,327 =       4,461,763 Jun 19 Sun 22:22:07 PDT) s
+25.8 118 M (49:) s
+52.2 118 M
+(      281,474,976,710,655 =       8,921,556 Dec 07 Fri 02:44:15 PST) s
+25.8 106 M (50:) s
+52.2 106 M
+(      562,949,953,421,311 =      17,841,143 Nov 13 Sat 13:28:31 PST) s
+25.8 94 M (51:) s
+52.2 94 M
+(    1,125,899,906,842,623 =      35,680,317 Sep 25 Tue 10:57:03 PST) s
+25.8 82 M (52:) s
+52.2 82 M
+(    2,251,799,813,685,247 =      71,358,665 Jun 19 Mon 05:54:07 PST) s
+25.8 70 M (53:) s
+52.2 70 M
+(    4,503,599,627,370,495 =     142,715,360 Dec 05 Fri 19:48:15 PST) s
+25.8 58 M (54:) s
+52.2 58 M
+(    9,007,199,254,740,991 =     285,428,751 Nov 11 Sun 23:36:31 PST) s
+25.8 46 M (55:) s
+52.2 46 M
+(   18,014,398,509,481,983 =     570,855,533 Sep 22 Fri 07:13:03 PST) s
+25.8 34 M (56:) s
+52.2 34 M
+(   36,028,797,018,963,967 =   1,141,709,097 Jun 12 Sat 22:26:07 PST) s
+25.8 22 M (57:) s
+52.2 22 M
+(   67,769,429,938,567,200 =   2,147,483,647 = INT_MAX \(localtime_segfaul) s
+5 10 M
+(t\)) s
+_R
+S
+%%Page: (2) 4
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (futuretimes.lis) def
+/fdir () def
+/ftail (futuretimes.lis) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (10/18/13) def
+/pagecountstr (/2) def
+/modtimestr (11:45:28) def
+/user_header_p true def
+/user_header_left_str ($cmps012b-wm/Labs-cmps012m/lab8c-unixprog-stat/testdata/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (58:) s
+52.2 694 M
+(9,223,372,036,854,775,807 = 292,271,023,045 = LONG_MAX) s
+_R
+S
+%%Trailer
+%%Pages: 4
+%%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
+%%EOF

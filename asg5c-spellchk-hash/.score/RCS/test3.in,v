@@ -1,0 +1,61 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2012.11.17.05.33.18;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.11.17.02.03.13;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
+
+                Eye halve a spelling chequer
+                It came with my pea sea
+                It plainly marques four my revue
+                Miss steaks eye kin knot sea
+
+                Eye strike a quay and type a word
+                And weight four it two say
+                Weather eye am wrong oar rite
+                It shows me strait a weigh
+
+                As soon as a mist ache is maid
+                It nose bee fore two long
+                And eye can put the error rite
+                Its rare lea ever wrong
+
+                Eye have run this poem threw it
+                Eye am shore your pleased two no
+                Its letter perfect all the weigh
+                My chequer tolled me sew.
+
+This word fooffoooofoo is misspelled but in the user.dict
+$Id$
+@
+
+
+1.1
+log
+@-
+@
+text
+@d24 1
+@

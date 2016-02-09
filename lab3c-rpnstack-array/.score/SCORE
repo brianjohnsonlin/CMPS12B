@@ -1,0 +1,65 @@
+$Id: SCORE,v 1.1 2013-09-25 13:09:38-07 - - $
+
+Grader:  copy this file into the student's submit directory.
+
+-----------------------------------------------------------------
+
+Run mk.build
+
+(3) Checksource did not complain.  If it did, deduct 1 point
+    (max 3) for each DIFFERENT kind of complaint.
+
+Look for the following items to see if the Java was converted
+properly into C.
+
+(3) do_binop and do_operator used a switch statement to select
+    operators.
+
+(3) push function correctly translated
+
+(3) err_operator do_print and do_clear properly implemented
+
+(3) general formatting and indentation is neat and readable
+
+source total=
+min 1, max 15
+
+-----------------------------------------------------------------
+
+Run mk.test
+
+For each of the three test runs, did the output look like
+the output from running jrpn in the code directory?
+Assign 0..4 points depending on how closely the output matched.
+Ignore minor differences in number formatting like a trailing
+0 or not.
+
+(3) the script mk worked and produced an executable.
+    otherwise compile by hand and run the tests.
+
+(3) test1.output
+
+(3) test2.output (error messages and invalid operators)
+
+(3) test3.output
+
+(3) All of the tests ran to completion and none of them
+    crashed with a segmentation fault message.  Deduct all
+    3 points for this item if any of the runs crashed.
+
+testing total=
+min 0, max 15
+
+-----------------------------------------------------------------
+
+add source total to testing total, giving:
+SUBTOTAL=
+min 1, max 30
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL2.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 30
+
+

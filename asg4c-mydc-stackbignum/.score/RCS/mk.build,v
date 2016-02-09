@@ -1,0 +1,48 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.02.22.20.52.17;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.02.16.03.29.55;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.build,v 1.1 2013-02-15 19:29:55-08 - - $
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+partnercheck 2>&1 | tee partnercheck.log
+checksource Makefile *.[hc] 2>&1 | tee check.log
+gmake 2>&1 | tee gmake.log
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 3
+a4 2
+# $Id: mk.build,v 1.1 2012-03-12 12:54:16-07 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+a5 1
+gmake lint 2>&1 | tee lint.log
+@

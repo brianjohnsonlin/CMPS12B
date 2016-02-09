@@ -1,0 +1,26 @@
+## $Id: data6.in,v 1.1 2013-10-16 12:50:14-07 - - $ ##
+###
+## hash marks are for comments
+
+a:1
+b:0
+c=ab/
+c?
+# this should print infinity
+
+foobar
+# this line should print a syntax error
+
+b=a+++++++++++++++++
+# stack underflow message?
+
+b=ab+ccccc+
+# error here too
+
+
+# note: blank lines should be ignored
+
+a:foobar
+# error about number format?
+
+#

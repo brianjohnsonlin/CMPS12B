@@ -1,0 +1,28 @@
+#!/bin/sh
+# $Id: mk.test,v 1.2 2013-10-16 13:40:55-07 - - $
+
+PROG=./pbitreecalc.perl
+
+function runtest {
+   test=$1
+   shift
+   echo $0: Running $test "$@"
+   "$@" 1>test.$test.out 2>test.$test.err
+   echo status = $? >test.$test.status
+   ls -goa test.$test.*
+}
+
+runtest 0stdin    $PROG -e <data0.in
+runtest 1stdin    $PROG -e <data1.in
+runtest 0file     $PROG -e data0.in
+runtest 1file     $PROG -e data1.in
+runtest 2file     $PROG -e data2.in
+runtest 3file     $PROG -e data3.in
+runtest 4file     $PROG -e data4.in
+runtest 5file     $PROG -e data5.in
+runtest 6file     $PROG -e data6.in
+runtest outfile   $PROG -o outfile data*.in
+runtest dev.null  $PROG  </dev/null
+runtest err.msgs  $PROG -e -ofoobar badinput/filename
+runtest no-eopt   $PROG data1.in
+

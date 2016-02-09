@@ -1,0 +1,14 @@
+Brian Lin bjlin unix2.lt.ucsc.edu
+
+I had a problem I could not fix with array doubling. When I attempt
+to free the old array, the program aborts. It runs fine if I do not
+attempt to free the array. However, this will cause leaks. Because
+the problem is contained within the array doubling function, the
+program runs fine without array doubling (although the program will
+run noticeably slower). So in the end, I had to choose between
+losing points for not doubling the array or risk losing points for
+memory leaks.
+Ultimately I chose risking point loss for memory leaks because
+there are only 2 leaked blocks in test 7 which is less than the 4
+it would take for me to lose points.
+I hope you take this into consideration when grading.

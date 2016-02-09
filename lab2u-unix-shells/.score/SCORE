@@ -1,0 +1,44 @@
+$Id: SCORE,v 1.2 2013-04-12 16:07:10-07 - - $
+
+Grader:  copy this file into the student's submit directory.
+
+Part 1 has 10 action points with the goal of becoming more
+familiar with Unix, shell redirection, pipes, etc.  It requires
+that files be submitted.  Assign between 0 and 3 points
+depending on the correctness of the files.  Explain any point
+deductions immediately after the file line.
+
+The lab requies 10 files to be submitted.  Were they submitted,
+and submitted correctly?
+
+     (3):  symlink.info
+
+     (3):  files.found
+
+     (3):  grep.submit
+
+     (3):  java.libs
+
+     (3):  mkexit1
+
+     (3):  privacy
+
+     (3):  exit1.java and exit255.java
+
+     (3):  Makefile
+
+     (3):  quota.size
+
+Run the script testexit1.  Output as expected?
+
+     (3):  testexit1
+
+SUBTOTAL=
+min 1, max 30
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL2.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 30
+

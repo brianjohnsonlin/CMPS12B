@@ -1,0 +1,56 @@
+$Id: SCORE,v 1.4 2013-03-26 17:59:00-07 - - $
+
+Grader will copy this scoresheet into the student's submit
+directory.  Also copy in the mk script.
+
+Run the script mk before grading.
+
+Student's name: ______________
+
+In the table below, the numbers in parens are the maximum score
+for consideration.  If the assignment is worth less than that
+amount, enter a negative score to deduct points.  Enter the
+negative number at the beginning of the line.  Comment as to why
+the point was deducted.
+
+Copy files from the .score directory to the student's submit
+directory then run the script:
+.     mk
+
+For each of the point ranges given, assign 0 points to mean not
+done at all, full points meaning all done, and partial credit
+for partially done.  Within each section, you may not assign a
+negative score.
+
+Lab1
+
+   (3)  Checksource did not complain about anything.
+
+   (3)  Was the required Java program there?
+
+   (3)  Was the required Makefile there?
+
+   (3)  Was the README there (implied by Makefile)
+
+   (3)  Did at least one of the submitted files have an RCS Id string?
+
+   (3)  Did gmake produce a class file and a jar file?
+
+   (3)  Were the names as per the lab specs?
+
+   (3)  Did the test run >hello.log produce the required results?
+
+   (3)  Were .cshrc, .bashrc, and .bash_profile submitted?
+
+   (3)  Was the $PATH variable properly set by these files?
+
+SUBTOTAL=
+min 3, max 30
+
+If they are doing pair programming, check SCORE.pair:
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL2.
+If not TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 30
+

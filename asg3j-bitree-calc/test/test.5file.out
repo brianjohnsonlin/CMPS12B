@@ -1,0 +1,11 @@
+**** ## $Id: data5.in,v 1.1 2013-10-16 12:50:14-07 - - $ ##
+**** hello there
+**** h=hello
+**** y=hello++++++++++++++
+**** z=hello!@#$%^&*()_+|~
+**** r:foobar
+**** u¿
+**** x=aa×bb÷*
+**** 3.1415926535
+**** p:MCMLXIV
+**** FINAL SYMBOL TABLE ****

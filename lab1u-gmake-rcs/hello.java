@@ -1,0 +1,50 @@
+// Brian Lin bjlin
+// $Id: hello.java,v 1.1 2013-10-07 14:57:26-07 - - $
+
+//
+// NAME
+//    hello - a verbose version of the classical "Hello World" program.
+//
+// SYNOPSIS
+//    hello
+//
+// DESCRIPTION
+//    Prints the message "Hello World" to stdout, and otherwise
+//    introduces itself and its environment.
+//
+
+import java.util.ArrayList;
+import java.util.List;
+import static java.lang.System.*;
+
+class hello {
+
+   static void printprop (String format, String... properties) {
+      List<Object> property_values = new ArrayList<Object>();
+      for (String property: properties) {
+         property_values.add (getProperty (property));
+      }
+      out.printf (format, property_values.toArray());
+   }
+
+   public static void main (String[] args) {
+      double memory = Runtime.getRuntime().freeMemory();
+      long now = currentTimeMillis();
+      out.printf ("Hello, World!%n");
+      printprop ("Class path is%n%s%n", "java.class.path");
+      printprop ("Operating system is %s-bit %s-endian %s %s %s%n",
+                 "sun.arch.data.model", "sun.cpu.endian",
+                 "os.arch", "os.name", "os.version");
+      printprop ("Runtime is %s (%s)%n",
+                 "java.runtime.name", "java.runtime.version");
+      printprop ("Virtual machine is %s (%s)%n",
+                 "java.vm.name", "java.vm.version");
+      printprop ("Home is %s (%s)%n", "java.home", "java.version");
+      out.printf ("There are %.0f bytes = %.2f Kbytes = %.4f Mbytes"
+                + " of free memory%n",
+                  memory, memory / (1<<10), memory / (1<<20));
+      out.printf ("Time is now %.3f seconds = %tc%n", now / 1e3, now);
+   }
+
+}
+

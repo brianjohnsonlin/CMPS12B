@@ -1,0 +1,152 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2013.05.07.00.03.59;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.02.06.21.26.24;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.02.06.21.07.44;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@$Id: SCORE,v 1.2 2013-02-06 13:26:24-08 - - $
+
+Grader:  copy this file into the student's submit directory.
+
+-----------------------------------------------------------------
+
+Run mk.build
+
+(3) Checksource did not complain.  If it did, deduct 1 point
+    (max 3) for each DIFFERENT kind of complaint.
+
+(3) merged getopt into program from example code
+
+(3) code to compare using strstr or strcasestr, depending on -i flag
+
+(3) code to print line numbers if -n flag
+
+(3) code to suppress output and only print filenames if -l flag
+
+source total=
+min 1, max 15
+
+-----------------------------------------------------------------
+
+Run mk.test
+
+For each of the three test runs, did the output look like
+the output from running jrpn in the code directory?
+Assign 0..4 points depending on how closely the output matched.
+Ignore minor differences in number formatting like a trailing
+0 or not.
+
+(2) the script mk worked and produced an executable.
+    otherwise compile by hand and run the tests.
+
+(2) test1 prints only filename
+
+(2) test2 prints lines but no filename
+
+(2) test3 prints filenames and lines
+
+(2) test4 prints filenames line numbers and lines
+
+(2) test5 matches Muse capitalized
+
+(3) All of the tests ran to completion and none of them
+    crashed with a segmentation fault message.  Deduct all
+    3 points for this item if any of the runs crashed.
+
+testing total=
+min 0, max 15
+
+-----------------------------------------------------------------
+
+add source total to testing total, giving:
+SUBTOTAL=
+min 1, max 30
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL2.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 30
+
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.1 2013-02-06 13:07:44-08 - - $
+a11 3
+Look for the following items to see if the Java was converted
+properly into C.
+
+d14 1
+a14 2
+(3) code to compare using strstr or strcasestr, depending on
+    -i flag
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.1 2013-01-28 18:02:14-08 - - $
+d15 1
+a15 1
+(3) general formatting and indentation is neat and readable
+d17 2
+a18 1
+(3)
+d20 1
+a20 1
+(3)
+d22 1
+a22 1
+(3)
+d37 1
+a37 1
+(3) the script mk worked and produced an executable.
+d40 1
+a40 1
+(3)
+d42 1
+a42 1
+(3)
+d44 5
+a48 1
+(3)
+@

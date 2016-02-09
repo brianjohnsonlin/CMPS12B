@@ -1,0 +1,15 @@
+Brian Lin bjlin unix2.lt.ucsc.edu
+
+I have completed all major parts of the implementation strategy.
+
+I did find a slight problem with two of the tests, which are the
+two concerning data5.in. It appears that data5.in has some
+characters that causes the program to not read it at all.
+Thus, the program runs as if it didn't read said file.
+
+I have tested the program with java on my own computer rather
+than the Unix timeshare and while it reads in the test file fine
+on my computer, the exact same program doesn't act the same on
+the Unix timeshare. Taking away such characters from the test
+file does solve this problem. I did also find a few classmates
+with the same problem. Hopefully, this will not cost us any points.

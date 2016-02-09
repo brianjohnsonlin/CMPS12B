@@ -1,0 +1,97 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.4
+date	2013.04.24.00.50.50;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.02.06.21.26.21;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.02.06.21.18.13;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.02.06.21.17.48;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.tests,v 1.3 2013-02-06 13:26:21-08 - - $
+run(){
+   echo running $*
+   test=$1
+   shift
+   $* 1>$test.out 2>$test.err
+}
+prog=cmatch
+run test1 $prog -l repet test2.in
+run test2 $prog repet test2.in
+run test3 $prog the test*in
+run test4 $prog -n the test*in
+run test5 $prog -i muse test*in
+run test6 $prog foo bar baz quz
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id$
+d9 1
+a9 1
+prog=pmatch
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+d4 1
+d7 1
+a7 2
+   "$@@" 1>$test.out 2>$test.err
+   echo "status $?" >$test.status
+d9 1
+a9 1
+prog=cmatch
+d14 1
+a14 1
+run test5 $prog -i must test*in
+@
+
+
+1.1
+log
+@-
+@
+text
+@d14 1
+@

@@ -1,0 +1,9 @@
+# Brian Lin bjlin
+lrwxr-xr-x. 1 bjlin users 69 Oct 12 18:56 lab2 -> /afs/cats.ucsc.edu/users/b/bjlin/12b/Labs-cmps012m/lab2u-unix-shells/
+  File: `lab2' -> `/afs/cats.ucsc.edu/users/b/bjlin/12b/Labs-cmps012m/lab2u-unix-shells/'
+  Size: 69        	Blocks: 2          IO Block: 4096   symbolic link
+Device: 16h/22d	Inode: 1488191940  Links: 1
+Access: (0755/lrwxr-xr-x)  Uid: ( 1630/   bjlin)   Gid: (  101/   users)
+Access: 2013-10-12 18:56:20.000000000 -0700
+Modify: 2013-10-12 18:56:20.000000001 -0700
+Change: 2013-10-12 18:56:20.000000000 -0700

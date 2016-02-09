@@ -1,0 +1,48 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.09.24.21.32.33;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.24.21.22.42;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk.build,v 1.1 2013-09-24 14:22:42-07 - - $
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+FILES="README Makefile jfmt.java"
+if [ -r PARTNER ] ; then FILES="$FILES PARTNER" ; fi
+checksource $FILES 2>&1 | tee check.log
+gmake 2>&1 | tee gmake.log
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 2
+a3 3
+# $Id: mk.build,v 1.1 2010-12-13 17:24:57-08 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+@

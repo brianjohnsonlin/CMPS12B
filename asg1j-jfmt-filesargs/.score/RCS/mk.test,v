@@ -1,0 +1,107 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.09.24.21.32.33;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.24.21.22.42;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.test,v 1.1 2013-09-24 14:22:42-07 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+PROG=fmt
+
+function runtest {
+   test=$1
+   shift
+   echo $0: Running $PROG "$@@"
+   $PROG "$@@" >test.$test.out 2>test.$test.err
+   echo status = $? >test.$test.status
+   ls -goa test.$test.*
+}
+
+# Test suite (a) - simple stdin
+runtest test-a1 <input1.dat
+runtest test-a2 <input2.dat
+runtest test-a3 <input3.dat
+
+# Test suite (b) - simple args[0]
+runtest test-b1 input1.dat
+runtest test-b2 input2.dat
+runtest test-b3 input3.dat
+
+# Test suite (c) - multiple input
+runtest test-c input*.dat
+
+# Test suite (d) - multiple files and stdin
+runtest test-d input1.dat - input3.dat <input2.dat
+
+# Test suite (e) - testing line lengths
+runtest test-e80 -80 input*.dat
+runtest test-e10 -10 input*.dat
+
+# Test suite (f) - error tests
+runtest test-f1 -foobar input1.dat
+runtest test-f2 /no/such/file input1.dat
+runtest test-f3 foo bar baz qux
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.test,v 1.1 2010-12-13 17:24:57-08 - - $
+d5 10
+a14 2
+RUN=runprogram.perl
+PROG=./jfmt
+d17 3
+a19 3
+$RUN -otest-a1 -0input1.dat $PROG
+$RUN -otest-a2 -0input2.dat $PROG
+$RUN -otest-a3 -0input3.dat $PROG
+d22 3
+a24 3
+$RUN -otest-b1              $PROG input1.dat
+$RUN -otest-b2              $PROG input2.dat
+$RUN -otest-b3              $PROG input3.dat
+d27 1
+a27 1
+$RUN -otest-c               $PROG input*.dat
+d30 1
+a30 1
+$RUN -otest-d  -0input2.dat $PROG input1.dat - input3.dat
+d33 2
+a34 2
+$RUN -otest-e80             $PROG -80 input*.dat
+$RUN -otest-e10             $PROG -10 input*.dat
+d37 3
+a39 3
+$RUN -otest-f1              $PROG -foobar input1.dat
+$RUN -otest-f2              $PROG /no/such/file input1.dat
+$RUN -otest-f3              $PROG foo bar baz qux
+@

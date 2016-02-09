@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.10.16.19.50.14;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@## $Id: data5.in,v 1.1 2009-10-27 19:08:17-07 - - $ ##
+hello there
+h=hello
+y=hello++++++++++++++
+z=hello!@@#$%^&*()_+|~
+r:foobar
+u¿
+x=aa×bb÷*
+3.1415926535
+p:MCMLXIV
+@

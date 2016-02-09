@@ -1,0 +1,85 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.10.16.20.40.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.16.19.50.17;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.test,v 1.1 2013-10-16 12:50:17-07 - - $
+
+PROG=./bitreecalc
+
+function runtest {
+   test=$1
+   shift
+   echo $0: Running $test "$@@"
+   "$@@" 1>test.$test.out 2>test.$test.err
+   echo status = $? >test.$test.status
+   ls -goa test.$test.*
+}
+
+runtest 0stdin    $PROG -e <data0.in
+runtest 1stdin    $PROG -e <data1.in
+runtest 0file     $PROG -e data0.in
+runtest 1file     $PROG -e data1.in
+runtest 2file     $PROG -e data2.in
+runtest 3file     $PROG -e data3.in
+runtest 4file     $PROG -e data4.in
+runtest 5file     $PROG -e data5.in
+runtest 6file     $PROG -e data6.in
+runtest outfile   $PROG -o outfile data*.in
+runtest dev.null  $PROG  </dev/null
+runtest err.msgs  $PROG -e -ofoobar badinput/filename
+runtest no-eopt   $PROG data1.in
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 2
+a3 4
+# $Id: mk.test,v 1.3 2009-10-27 19:44:15-07 - - $
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+export PATH
+RUN=runprogram.perl
+d6 22
+a27 13
+$RUN -otest.0stdin -0data0.in    $PROG -e
+$RUN -otest.1stdin -0data1.in    $PROG -e
+$RUN -otest.0file                $PROG -e data0.in
+$RUN -otest.1file                $PROG -e data1.in
+$RUN -otest.2file                $PROG -e data2.in
+$RUN -otest.3file                $PROG -e data3.in
+$RUN -otest.4file                $PROG -e data4.in
+$RUN -otest.5file                $PROG -e data5.in
+$RUN -otest.6file                $PROG -e data6.in
+$RUN -otest.outfile              $PROG -o outfile data*.in
+$RUN -otest.dev.null -0/dev/null $PROG 
+$RUN -otest.err.msgs             $PROG -e -ofoobar badinput/filename
+$RUN -otest.no-eopt              $PROG data1.in
+@

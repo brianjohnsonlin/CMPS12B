@@ -1,0 +1,57 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.02.22.21.39.11;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.03.09.02.53.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh -x
+# $Id: mk.build,v 1.1 2012-03-08 18:53:47-08 - - $
+#
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+partnercheck 2>&1 | tee partnercheck.log
+checksource *.[hc] *[Mm]akefile 2>&1 | tee check.log
+gmake 2>&1 | tee gmake.log
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.build,v 1.1 2011-05-25 19:21:06-07 - - $
+d4 4
+a7 9
+# Run checksource and lint then compile.
+# Make sure checksource is in your path.
+#
+lintopt="-Xa -fd -m -u -x -errchk=%all"
+#
+checksource *.[hc] *[Mm]akefile    2>&1 | tee check.log
+lint $lintopt inssort.c numsort.c  2>&1 | tee lintnum.log
+lint $lintopt inssort.c linesort.c 2>&1 | tee lintlin.log
+gmake                              2>&1 | tee gmake.log
+@

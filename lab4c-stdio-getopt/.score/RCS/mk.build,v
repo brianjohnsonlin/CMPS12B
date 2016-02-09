@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.02.06.20.58.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/bash
+# $Id: mk.build,v 1.2 2013-01-28 18:04:07-08 - - $
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin
+checksource mk crpn.c 2>&1 |& tee checksource.log
+partnercheck 2>&1 |& tee partnercheck.log
+chmod +x mk
+./mk 2>&1 | tee mk.log
+@

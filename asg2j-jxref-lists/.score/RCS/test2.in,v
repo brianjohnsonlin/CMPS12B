@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.01.25.03.25.04;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+This is a file of repetitive test data.
+$Id: test2.in,v 1.1 2010-04-13 13:22:30-07 - - $
+@
